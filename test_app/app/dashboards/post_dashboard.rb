@@ -13,7 +13,8 @@ class PostDashboard < Administrate::BaseDashboard
     other_images: Field::ActiveStorage.with_options(
       destroy_url: proc do |namespace, resource, attachment|
         [:other_image_admin_post, { id: resource.id, attachment_id: attachment.id }]
-      end
+      end,
+      file_field_options: { accept: "image/png" }
     ),
     title: Field::String,
     created_at: Field::DateTime,

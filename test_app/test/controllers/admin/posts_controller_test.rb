@@ -15,6 +15,7 @@ module Admin
       get new_admin_post_path
 
       assert_response :ok
+      assert_select "input[type=file,accept=image/png]"
     end
 
     test "create with valid parameters increases Post count by 1" do
